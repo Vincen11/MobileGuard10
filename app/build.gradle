@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.1"
     defaultConfig {
         applicationId "cn.edu.gdmec.android.mobileguard"
         minSdkVersion 15
-        targetSdkVersion 26
+        targetSdkVersion 25
         versionCode 1
-        versionName "1.0"
+        versionName "1.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -17,14 +17,30 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    packagingOptions {
+        exclude 'MET-INF/DEPENDENCIES.txt'
+        exclude 'MET-INF/LICESE.txt'
+        exclude 'MET-INF/NOTICE.txt'
+        exclude 'MET-INF/NOTICE'
+        exclude 'MET-INF/LICENSE'
+        exclude 'MET-INF/DEPENDENCIES'
+        exclude 'MET-INF/notice.txt'
+        exclude 'MET-INF/License.txt'
+        exclude 'MET-INF/dependencies.txt'
+        exclude 'MET-INF/LGP2.1'
+
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:26.+'
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile files('src/libs/commons-codec-1.9.jar')
+    compile files('src/libs/httpclient-4.5.2.jar')
+    compile files('src/libs/httpcore-4.4.4.jar')
+    compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha7'
     testCompile 'junit:junit:4.12'
 }
