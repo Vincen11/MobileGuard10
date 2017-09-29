@@ -18,16 +18,16 @@ android {
         }
     }
     packagingOptions {
-        exclude 'MET-INF/DEPENDENCIES.txt'
-        exclude 'MET-INF/LICESE.txt'
-        exclude 'MET-INF/NOTICE.txt'
-        exclude 'MET-INF/NOTICE'
-        exclude 'MET-INF/LICENSE'
-        exclude 'MET-INF/DEPENDENCIES'
-        exclude 'MET-INF/notice.txt'
-        exclude 'MET-INF/License.txt'
-        exclude 'MET-INF/dependencies.txt'
-        exclude 'MET-INF/LGP2.1'
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICESE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/License.txt'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LGP2.1'
 
     }
 }

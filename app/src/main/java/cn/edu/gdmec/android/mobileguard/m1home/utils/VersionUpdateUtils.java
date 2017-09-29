@@ -43,14 +43,15 @@ public class  VersionUpdateUtils{
     private static final int MESSAGE_SHOW_DIALOG = 104;
     private static final int MESSAGE_ENTERHOME = 105;
 
-    private Handler handler = new Handler(){//18号课件的三张
+    private android.os.Handler handler = new android.os.Handler(){
+        @Override
         public void handleMessage(Message msg){
-            switch(msg.what){
+            switch(msg.what) {
                 case MESSAGE_IO_ERROR:
-                    Toast.makeText(context,"IO错误",Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "IO错误", Toast.LENGTH_LONG).show();
                     break;
                 case MESSAGE_JSON_ERROR:
-                    Toast.makeText(context,"JSON错误",Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "JSON错误", Toast.LENGTH_LONG).show();
                     break;
                 case MESSAGE_SHOW_DIALOG:
                     showUpdateDialog(versionEntity);
@@ -60,10 +61,9 @@ public class  VersionUpdateUtils{
                     context.startActivity(intent);
                     context.finish();
                     break;
-
             }
         }
-};
+    };
 
 
 
@@ -112,15 +112,14 @@ public class  VersionUpdateUtils{
         });
         builder.setNegativeButton("立即升级", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
+            public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
-
             }
         });
         builder.show();
     }
     private void enterHome(){
-        handler.setEmptyMessage(MESSAGE_ENTERHOME);
+        handler.sendEmptyMessage(MESSAGE_ENTERHOME);
     }
     private void downloadNewApk(String apkurl){
         DownloadUtils downloadUtils = new DownloadUtils();
