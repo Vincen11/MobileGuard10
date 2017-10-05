@@ -3,9 +3,6 @@ package cn.edu.gdmec.android.mobileguard;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
-
-import junit.runner.Version;
-
 import cn.edu.gdmec.android.mobileguard.m1home.utils.MyUtils;
 import cn.edu.gdmec.android.mobileguard.m1home.utils.VersionUpdateUtils;
 
@@ -26,8 +23,7 @@ public class SplashActivity extends AppCompatActivity {
                 super.run();
                 versionUpdateUtils.getCloudVersion();
             }
-        };
+        }.start();
     }
-
 }
 
