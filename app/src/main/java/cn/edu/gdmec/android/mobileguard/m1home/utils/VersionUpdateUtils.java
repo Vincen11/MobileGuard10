@@ -87,6 +87,7 @@ public class  VersionUpdateUtils{
             e.printStackTrace();
         }
     }
+    //>>>>
 
     private void showUpdateDialog(final VersionEntity versionEntity){
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
