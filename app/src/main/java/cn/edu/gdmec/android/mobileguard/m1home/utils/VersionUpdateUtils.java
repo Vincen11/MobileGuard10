@@ -101,6 +101,13 @@ public class  VersionUpdateUtils{
                 enterHome();
             }
         });
+        builder.setNegativeButton("暂不升级",new DialogInterface.OnClickListener(){
+            @Override
+            public void onClick(DialogInterface dialogInterface,int i){
+                dialogInterface.dismiss();
+                enterHome();
+            }
+        });
         builder.show();
     }
     private void enterHome(){
