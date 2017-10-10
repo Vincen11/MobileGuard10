@@ -87,7 +87,7 @@ public class  VersionUpdateUtils{
             e.printStackTrace();
         }
     }
-    //>>>>
+    //>>>>????
 
     private void showUpdateDialog(final VersionEntity versionEntity){
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
@@ -110,6 +110,7 @@ public class  VersionUpdateUtils{
             }
         });
         builder.show();
+        //here
     }
     private void enterHome(){
         handler.sendEmptyMessage(MESSAGE_ENTERHOME);
