@@ -110,7 +110,7 @@ public class  VersionUpdateUtils{
             }
         });
         builder.show();
-        //herezaichuanyici
+        //hereheheda
     }
     private void enterHome(){
         handler.sendEmptyMessage(MESSAGE_ENTERHOME);
