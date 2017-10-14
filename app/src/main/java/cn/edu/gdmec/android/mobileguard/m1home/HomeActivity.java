@@ -116,7 +116,7 @@ public class HomeActivity extends AppCompatActivity {
                         .getPassword()))){
                     //进入防盗界面
                     mInPswdDialog.dismiss();
-//                    startActivity(LostFindActivity.class);
+                    startActivity(LostFindActivity.class);
 
                     Toast.makeText(HomeActivity.this,"可以进入手机防盗模块",Toast.LENGTH_LONG).show();
                 }else {
