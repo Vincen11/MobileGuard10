@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -117,7 +116,7 @@ public class HomeActivity extends AppCompatActivity {
                         .getPassword()))){
                     //进入防盗界面
                     mInPswdDialog.dismiss();
-                    startActivity(LostFindActivity.class);
+//                    startActivity(LostFindActivity.class);
 
                     Toast.makeText(HomeActivity.this,"可以进入手机防盗模块",Toast.LENGTH_LONG).show();
                 }else {
