@@ -11,8 +11,7 @@ public class VersionEntity {
     public String descrption;
     public String apkurl;
 
-
-    }
+}
 
 
 

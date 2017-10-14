@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import cn.edu.gdmec.android.mobileguard.R;
 import cn.edu.gdmec.android.mobileguard.m1home.adapter.HomeAdapter;
+import cn.edu.gdmec.android.mobileguard.m2theftguard.LostFindActivity;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.InterPasswordDialog;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.SetUpPassWordDialog;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.utils.MD5Utils;
@@ -55,7 +57,8 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
-    public boolean onKeyDowm(int keyCode, KeyEvent event){
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
         if(keyCode==KeyEvent.KEYCODE_BACK){
             if(System.currentTimeMillis()-mExitTime<2000){
                 System.exit(0);
@@ -67,6 +70,7 @@ public class HomeActivity extends AppCompatActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
+
 
     //这是设置密码
     private void showSetUpPswDialog(){
@@ -113,6 +117,8 @@ public class HomeActivity extends AppCompatActivity {
                         .getPassword()))){
                     //进入防盗界面
                     mInPswdDialog.dismiss();
+                    startActivity(LostFindActivity.class);
+
                     Toast.makeText(HomeActivity.this,"可以进入手机防盗模块",Toast.LENGTH_LONG).show();
                 }else {
                     //对话框消失
