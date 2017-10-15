@@ -14,10 +14,10 @@ public class Setup4Activity extends BaseSetupActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_setup_4);
-        //设置第4个圆点
+    setContentView(R.layout.activity_setup_4);
+    //设置第4个圆点
         ((RadioButton)findViewById(R.id.rb_four)).setChecked(true);
-    }
+}
 
     @Override
     public void showNext() {
