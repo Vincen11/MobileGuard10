@@ -26,7 +26,7 @@
                 android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:text="恭喜!设置完成"
+                android:text="恭喜 ! 设置完成"
                 android:textSize="18sp"/>
         </RelativeLayout>
 
