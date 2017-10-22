@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--显示前一屏,下一个页面进来的效果-->
-<translate xmlns:android="http://schemas.android.com/apk/res/android"
-
+<translate
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:fromXDelta="-100%p"
     android:toXDelta="0"
     android:fromYDelta="0"

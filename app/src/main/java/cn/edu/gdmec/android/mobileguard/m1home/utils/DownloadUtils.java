@@ -6,12 +6,12 @@ import android.net.Uri;
 import android.webkit.MimeTypeMap;
 
 /**
- * Created by Asus on 2017/9/23.
+ * Created by Jack on 2017/10/12.
  */
 
 public class DownloadUtils {
-    public void downloadApk(String url,String targetFile,Context context){
-        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
+    public void downloadApk(String url, String targetFile, Context context){
+        DownloadManager.Request request = new DownloadManager.Request( Uri.parse(url));
         request.setAllowedOverRoaming(false);
         MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
         String mimeString = mimeTypeMap.getMimeTypeFromExtension(mimeTypeMap.getFileExtensionFromUrl(url));
@@ -21,7 +21,8 @@ public class DownloadUtils {
         request.setVisibleInDownloadsUi(true);
 
         request.setDestinationInExternalPublicDir("/download",targetFile);
-        DownloadManager downloadManager = (DownloadManager) context.getSystemService(context.DOWNLOAD_SERVICE);
+        DownloadManager downloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
         long mTaskid = downloadManager.enqueue(request);
+
     }
 }

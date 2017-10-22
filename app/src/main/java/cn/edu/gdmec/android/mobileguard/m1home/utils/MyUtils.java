@@ -5,7 +5,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
 /**
- * Created by Asus on 2017/9/23.
+ * Created by Jack on 2017/10/12.
  */
 
 public class MyUtils {
@@ -14,10 +14,9 @@ public class MyUtils {
         try {
             PackageInfo packageInfo = packageManager.getPackageInfo(context.getPackageName(),0);
             return packageInfo.versionName;
-        } catch (PackageManager.NameNotFoundException e){
+        } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
             return "";
-
         }
     }
 }

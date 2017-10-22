@@ -1,29 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_width="match_parent"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_gravity="center"
-    android:background="@drawable/bg_home"
-xmlns:android="http://schemas.android.com/apk/res/android">
+    android:background="@drawable/bg_home">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center">
+
         <ImageView
+            android:id="@+id/imageView"
             android:layout_width="100dp"
-            android:layout_height="107dp"
-            android:background="@drawable/launch_bg"
-            android:scaleType="fitXY"/>
+            android:layout_height="107.5dp"
+            android:background="@drawable/superman" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_home"
             android:textSize="16sp"
-            android:text="主人,我是你的手机小护卫"
+            android:text="主人，我是你的手机小护卫"
             android:textColor="#90000000"
             android:textScaleX="1.1"
-            android:typeface="normal"/>
+            android:typeface="monospace"/>
     </LinearLayout>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -32,10 +35,11 @@ xmlns:android="http://schemas.android.com/apk/res/android">
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/gv_home"
-            android:horizontalSpacing="10dp"
             android:layout_centerInParent="true"
             android:gravity="center"
+            android:horizontalSpacing="10dp"
             android:verticalSpacing="10dp"
-            android:numColumns="3"></GridView>
+            android:numColumns="3">
+        </GridView>
     </RelativeLayout>
 </LinearLayout>
