@@ -11,9 +11,6 @@ import android.widget.Toast;
 
 import cn.edu.gdmec.android.mobileguard.R;
 
-/**
- * Created by Jack on 2017/10/14.
- */
 
 public abstract class BaseSetUpActivity extends AppCompatActivity {
     public SharedPreferences sp;
