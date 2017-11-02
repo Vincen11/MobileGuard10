@@ -20,7 +20,9 @@ public class Setup1Activity extends BaseSetUpActivity {
     @Override
     public void showNext(){
         startActivityAndFinishSelf ( Setup2Activity.class );
+        overridePendingTransition(R.anim.zoomin, R.anim.zoomout);
     }
+
     @Override
     public void showPre(){
         Toast.makeText ( this, "当前页面已经是第一页", Toast.LENGTH_LONG ).show ();

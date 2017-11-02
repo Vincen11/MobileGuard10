@@ -16,16 +16,18 @@ import android.widget.Toast;
 import cn.edu.gdmec.android.mobileguard.R;
 import cn.edu.gdmec.android.mobileguard.m1home.adapter.HomeAdapter;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.LostFindActivity;
+import cn.edu.gdmec.android.mobileguard.m2theftguard.Setup1Activity;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.InterPasswordDialog;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.SetUpPasswordDialog;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.receiver.MyDeviceAdminReceiver;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.utils.MD5Utils;
+import cn.edu.gdmec.android.mobileguard.m3communicationguard.SecurityPhoneActivity;
 
 public class HomeActivity extends AppCompatActivity {
     private GridView gv_home;
     private long mExitTime;
     private SharedPreferences mSharedPreferences;
-//设备管理员
+   //设备管理员
     private DevicePolicyManager policyManager;
     //申请权限
     private ComponentName componentName;
@@ -53,6 +55,10 @@ public class HomeActivity extends AppCompatActivity {
                             showSetUpPswdDialog();
                         }
                         break;
+                    case 1:
+                        Intent intent = new Intent ( HomeActivity.this,SecurityPhoneActivity.class );
+                        startActivity ( intent );
+                        finish ();
                 }
             }
         });

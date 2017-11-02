@@ -4,7 +4,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.transition.Transition;
+import android.transition.TransitionInflater;
 import android.view.View;
+import android.view.Window;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -12,15 +15,13 @@ import android.widget.Toast;
 import cn.edu.gdmec.android.mobileguard.R;
 
 
-/**
- * Created by Jack on 2017/10/14.
- */
 
 public class Setup3Activity extends BaseSetUpActivity implements View.OnClickListener{
     private EditText mInputPhone;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate ( savedInstanceState );
+
         setContentView ( R.layout.activity_setup_3 );
         ((RadioButton )findViewById ( R.id.rb_third )).setChecked ( true );
 
