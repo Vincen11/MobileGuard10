@@ -20,7 +20,6 @@ public class Setup1Activity extends BaseSetUpActivity {
     @Override
     public void showNext(){
         startActivityAndFinishSelf ( Setup2Activity.class );
-        overridePendingTransition(R.anim.zoomin, R.anim.zoomout);
     }
 
     @Override
