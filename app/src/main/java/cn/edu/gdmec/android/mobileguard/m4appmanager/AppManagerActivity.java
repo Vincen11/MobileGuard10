@@ -138,7 +138,7 @@ public class AppManagerActivity extends AppCompatActivity implements View.OnClic
         String str_avail_sd  = Formatter.formatFileSize(this,avail_sd);
         String str_avail_rom  = Formatter.formatFileSize(this,avail_rom);
         mPhoneMemoryTV.setText("剩余手机内存:"+str_avail_rom);
-        mPhoneMemoryTV.setText("剩余SD卡内存:"+str_avail_sd);
+        mSDMemoryTV.setText("剩余SD卡内存:"+str_avail_sd);
 
     }
 
