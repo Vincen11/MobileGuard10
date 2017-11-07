@@ -117,7 +117,7 @@ public class EngineUtils {
         }
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(appInfo.appName);
-            builder.setMessage("Version:" + version + "\n" + "Install time:" + date + "\n"+ "Certificate issuer:" + certMsg[0]+certMsg[1] + "\n" + "Permissions:"+ "\n"  + permissions);
+            builder.setMessage("Version:" + version + "\n" + "Install time:" + date + "\n"+ "Certificate issuer:" + certMsg[0]+certMsg[1] + "\n" + "\n"  +"Permissions:"+ "\n"  + permissions);
         builder.setCancelable(false);
         builder.setNegativeButton("确定", new DialogInterface.OnClickListener() {
             @Override
