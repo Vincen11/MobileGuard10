@@ -15,6 +15,7 @@ import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.Date;
@@ -81,18 +82,27 @@ public class EngineUtils {
         final String fileDir = appInfo.apkPath;
         String date = new Date(new File(fileDir).lastModified()).toLocaleString();
 
-
+//        //获取证书信息
+//        PackageInfo pis = pm.getPackageArchiveInfo(appInfo.apkPath, PackageManager.GET_SIGNATURES);
+//        byte[] b = pis.signatures[0].toByteArray();
+//
+//            StringBuilder sb = new StringBuilder();
+//            for (byte digestByte : b)
+//            {
+//                sb.append((Integer.toHexString((digestByte & 0xFF) | 0x100)).substring(1, 3));
+//            }
         //获取证书信息
-        PackageInfo pis = pm.getPackageArchiveInfo(appInfo.apkPath, PackageManager.GET_SIGNATURES);
-        byte[] b = pis.signatures[0].toByteArray();
-
-            StringBuilder sb = new StringBuilder();
-            for (byte digestByte : b)
-            {
-                sb.append((Integer.toHexString((digestByte & 0xFF) | 0x100)).substring(1, 3));
-            }
-
-
+        String[] certMsg = new String[2];
+        try {
+            PackageManager pm1 = context.getPackageManager();
+            PackageInfo  pis = pm1.getPackageInfo(appInfo.appName,PackageManager.GET_SIGNATURES);
+            Signature[] sigs = pis.signatures; //签名
+            CertificateFactory certFactory = CertificateFactory.getInstance("X.509");//获取证书
+            X509Certificate cert = (X509Certificate) certFactory.generateCertificate(
+                    new ByteArrayInputStream(sigs[0].toByteArray()));
+            //获取证书发行者   可根据证书发行者来判断该应用是否被二次打包（被破解的应用重新打包后，签名与原包一定不同，据此可以判断出该应用是否被人做过改动）
+            certMsg[0] = cert.getIssuerDN().toString();
+            certMsg[1] = cert.getSubjectDN().toString();
 
             //获取权限信息
         String[] per = pm.getPackageArchiveInfo(appInfo.apkPath, PackageManager.GET_PERMISSIONS).requestedPermissions;//quanxian
@@ -107,7 +117,7 @@ public class EngineUtils {
         }
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(appInfo.appName);
-            builder.setMessage("Version:" + version + "\n" + "Install time:" + date + "\n"+ "Certificate issuer:" + "" + "\n" + "Permissions:"+ "\n"  + permissions);
+            builder.setMessage("Version:" + version + "\n" + "Install time:" + date + "\n"+ "Certificate issuer:" + certMsg[0]+certMsg[1] + "\n" + "Permissions:"+ "\n"  + permissions);
         builder.setCancelable(false);
         builder.setNegativeButton("确定", new DialogInterface.OnClickListener() {
             @Override
@@ -116,6 +126,12 @@ public class EngineUtils {
             }
         });
         builder.show();
+        }catch (CertificateException e) {
 
+        } catch (Exception e) {
+
+
+        }
     }
+
 }
