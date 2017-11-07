@@ -100,17 +100,15 @@ public class EngineUtils {
         if (per != null) {
             for (int i = 0; i < per.length; i++) {
                 permissions.append(per[i]);
-                permissions.append("\\n");
-                permissions.append("\\n");
+                permissions.append("\n");
             }
         } else {
             permissions.append("没有需要的权限");
         }
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("关于");
-        builder.setMessage("版本号：" + version + "\n" + "安装时间：" + date + "\n"+ "签名：" + sb + "\n" + "权限：" + permissions);
+        builder.setTitle(appInfo.appName);
+            builder.setMessage("Version:" + version + "\n" + "Install time:" + date + "\n"+ "Certificate issuer:" + "" + "\n" + "Permissions:"+ "\n"  + permissions);
         builder.setCancelable(false);
-        builder.setIcon(R.mipmap.ic_launcher_round);
         builder.setNegativeButton("确定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
