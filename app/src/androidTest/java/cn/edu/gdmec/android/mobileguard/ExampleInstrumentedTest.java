@@ -3,6 +3,7 @@ package cn.edu.gdmec.android.mobileguard;
 import android.content.Context;
 import android.content.Intent;
 import android.support.test.InstrumentationRegistry;
+import android.support.test.filters.SdkSuppress;
 import android.support.test.runner.AndroidJUnit4;
 import android.support.test.uiautomator.By;
 import android.support.test.uiautomator.UiDevice;
@@ -12,14 +13,18 @@ import android.support.test.uiautomator.UiObjectNotFoundException;
 import android.support.test.uiautomator.UiScrollable;
 import android.support.test.uiautomator.UiSelector;
 import android.support.test.uiautomator.Until;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -27,20 +32,11 @@ import static java.lang.Thread.sleep;
 import static org.hamcrest.core.IsNull.notNullValue;
 import static org.junit.Assert.*;
 
-/**
- * Instrumentation test, which will execute on an Android device.
- *
- * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
- */
 @RunWith(AndroidJUnit4.class)
+@SdkSuppress(minSdkVersion = 18)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ExampleInstrumentedTest {
-    @Test
-    public void useAppContext() throws Exception {
-        // Context of the app under test.
-        Context appContext = InstrumentationRegistry.getTargetContext();
-
-        assertEquals("cn.edu.gdmec.android.mobileguard", appContext.getPackageName());
-    }
+    //包名
     private static final String BASIC_SAMPLE_PACKAGE
             = "cn.edu.gdmec.android.mobileguard";
     //超时时间
@@ -333,9 +329,11 @@ public class ExampleInstrumentedTest {
         result = mDevice.findObject(new UiSelector().textStartsWith("手机防盗向导"));
         String str = result.getText();
     }
-    @Test
+    //@Test
     public void t12CommunicationGuardWithoutTitleBar() throws Exception {
-        UiObject result = mDevice.findObject(new UiSelector().textStartsWith("通讯卫士"));
+        result = mDevice.findObject(new UiSelector().textStartsWith("激活此设备管理员"));
+        result.clickAndWaitForNewWindow();
+        result = mDevice.findObject(new UiSelector().textStartsWith("通讯卫士"));
         result.clickAndWaitForNewWindow();
         result = mDevice.findObject(new UiSelector().textStartsWith("MobileGuard"));
         if(result.exists()){
@@ -343,7 +341,7 @@ public class ExampleInstrumentedTest {
         }
 
     }
-    @Test
+    //@Test
     public void t13AddBlackCannotNull() throws Exception {
         UiObject result = mDevice.findObject(new UiSelector().textStartsWith("通讯卫士"));
         result.clickAndWaitForNewWindow();
@@ -356,7 +354,7 @@ public class ExampleInstrumentedTest {
             throw new Exception("No implement of valid function for phonenumber and name in AddBlakNumberActivity .");
         }
     }
-    @Test
+   // @Test
     public void t14AddContactName() throws Exception {
         UiObject result = mDevice.findObject(new UiSelector().textStartsWith("通讯卫士"));
         result.clickAndWaitForNewWindow();
@@ -377,7 +375,7 @@ public class ExampleInstrumentedTest {
         String str = name.getText();
         assertEquals("get name from contact list",str,"York Cui");
     }
-    @Test
+    //@Test
     public void t15BlacknameListViewScroll() throws Exception {
         UiObject result = mDevice.findObject(new UiSelector().textStartsWith("通讯卫士"));
         result.clickAndWaitForNewWindow();
@@ -394,5 +392,71 @@ public class ExampleInstrumentedTest {
             throw new Exception("Blacklist can't be scrolled to load more items.");
         }
     }
+    //@Test
+    public void t16AppManager() throws Exception {
+        result = mDevice.findObject(new UiSelector().textStartsWith("激活此设备管理员"));
+        result.clickAndWaitForNewWindow();
+        result = mDevice.findObject(new UiSelector().textStartsWith("软件管家"));
+        result.clickAndWaitForNewWindow();
+        result = mDevice.findObject(new UiSelector().textStartsWith("MobileGuard"));
+        result.clickAndWaitForNewWindow();
+        result = mDevice.findObject(new UiSelector().textStartsWith("启动"));
+        result.clickAndWaitForNewWindow();
+        result = mDevice.findObject(new UiSelector().textStartsWith("Hello World!"));
+        if(!result.exists()){
+            throw new Exception("AppManager can't startup app .");
+        }
+    }
+    @Test
+    public void t17AppManagerAboutButton() throws Exception {
+        result = mDevice.findObject(new UiSelector().textStartsWith("软件管家"));
+        result.clickAndWaitForNewWindow();
+        result = mDevice.findObject(new UiSelector().textStartsWith("MobileGuard"));
+        result.clickAndWaitForNewWindow();
+        result = mDevice.findObject(new UiSelector().textStartsWith("关于"));
+        if(!result.exists()){
+            throw new Exception("Can't find about button in AppManager.");
+        }
+    }
 
+    @Test
+    public void t18AppManagerAboutVersion() throws Exception {
+        result = mDevice.findObject(new UiSelector().textStartsWith("软件管家"));
+        result.clickAndWaitForNewWindow();
+        result = mDevice.findObject(new UiSelector().textStartsWith("MobileGuard"));
+        result.clickAndWaitForNewWindow();
+        result = mDevice.findObject(new UiSelector().textStartsWith("关于"));
+        result.clickAndWaitForNewWindow();
+        result = mDevice.findObject(new UiSelector().textContains("1.3"));
+        if(!result.exists()){
+            throw new Exception("Can't get app version.");
+        }
+    }
+
+    @Test
+    public void t19AppManagerAboutVersion() throws Exception {
+        result = mDevice.findObject(new UiSelector().textStartsWith("软件管家"));
+        result.clickAndWaitForNewWindow();
+        result = mDevice.findObject(new UiSelector().textStartsWith("MobileGuard"));
+        result.clickAndWaitForNewWindow();
+        result = mDevice.findObject(new UiSelector().textStartsWith("关于"));
+        result.clickAndWaitForNewWindow();
+        result = mDevice.findObject(new UiSelector().textContains("CN=York"));
+        if(!result.exists()){
+            throw new Exception("Can't get app signature issuer message.");
+        }
+    }
+    @Test
+    public void t20AppManagerAboutVersion() throws Exception {
+        result = mDevice.findObject(new UiSelector().textStartsWith("软件管家"));
+        result.clickAndWaitForNewWindow();
+        result = mDevice.findObject(new UiSelector().textStartsWith("MobileGuard"));
+        result.clickAndWaitForNewWindow();
+        result = mDevice.findObject(new UiSelector().textStartsWith("关于"));
+        result.clickAndWaitForNewWindow();
+        result = mDevice.findObject(new UiSelector().textContains("android.permission"));
+        if(!result.exists()){
+            throw new Exception("Can't get app request permissions.");
+        }
+    }
 }

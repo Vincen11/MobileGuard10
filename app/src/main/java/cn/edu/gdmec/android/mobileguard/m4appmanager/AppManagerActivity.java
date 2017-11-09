@@ -101,6 +101,7 @@ public class AppManagerActivity extends AppCompatActivity implements View.OnClic
         IntentFilter intentFilter = new IntentFilter(Intent.ACTION_PACKAGE_REMOVED);
         intentFilter.addDataScheme("package");
         registerReceiver(receiver,intentFilter);
+        this.getSupportActionBar().hide();//去除标题栏
         initView();
     }
     //初始化
