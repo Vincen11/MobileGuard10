@@ -61,10 +61,12 @@ public class HomeActivity extends AppCompatActivity {
                         Intent intent = new Intent ( HomeActivity.this,SecurityPhoneActivity.class );
                         startActivity ( intent );
                         finish ();
+                        break;
                     case 2:
                         Intent intent1 = new Intent ( HomeActivity.this,AppManagerActivity.class );
                         startActivity ( intent1 );
                         finish ();
+                        break;
                 }
             }
         });

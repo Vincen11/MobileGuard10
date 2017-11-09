@@ -95,7 +95,7 @@ public class EngineUtils {
         String[] certMsg = new String[2];
         try {
             PackageManager pm1 = context.getPackageManager();
-            PackageInfo  pis = pm1.getPackageInfo(appInfo.appName,PackageManager.GET_SIGNATURES);
+            PackageInfo  pis = pm1.getPackageInfo(appInfo.packageName,PackageManager.GET_SIGNATURES);
             Signature[] sigs = pis.signatures; //签名
             CertificateFactory certFactory = CertificateFactory.getInstance("X.509");//获取证书
             X509Certificate cert = (X509Certificate) certFactory.generateCertificate(
