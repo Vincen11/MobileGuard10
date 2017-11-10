@@ -146,7 +146,6 @@ public class AddBlackNumberActivity extends AppCompatActivity implements View.On
                     }
 
                     if (!dao.IsNumberExist(blackContactInfo.phoneNumber)){
-                        Toast.makeText(this,String.valueOf(blackContactInfo.mode),Toast.LENGTH_SHORT).show();
                         dao.add(blackContactInfo);
                     }else {
                         Toast.makeText(this,"该号码已经被添加至黑名单",Toast.LENGTH_SHORT).show();
