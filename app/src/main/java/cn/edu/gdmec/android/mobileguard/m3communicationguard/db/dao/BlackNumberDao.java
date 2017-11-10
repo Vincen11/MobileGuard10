@@ -6,16 +6,15 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.SystemClock;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.edu.gdmec.android.mobileguard.m3communicationguard.AddBlackNumberActivity;
 import cn.edu.gdmec.android.mobileguard.m3communicationguard.db.BlackNumberOpenHelper;
 import cn.edu.gdmec.android.mobileguard.m3communicationguard.entity.BlackContactInfo;
 
-/**
- * Created by user on 2017/10/31.
- */
 
 public class BlackNumberDao {
     private BlackNumberOpenHelper blackNumberOpenHelper;
@@ -36,6 +35,7 @@ public class BlackNumberDao {
         values.put("number",blackContactInfo.phoneNumber);
         values.put("name",blackContactInfo.contactName);
         values.put("mode",blackContactInfo.mode);
+        values.put("type",blackContactInfo.contactType);
         long rowid = db.insert("blacknumber",null,values);
         if (rowid==-1){
             //插入失败
@@ -63,15 +63,16 @@ public class BlackNumberDao {
                                                      int pagesize){
         SQLiteDatabase db = blackNumberOpenHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(
-                "select number,mode,name from blacknumber limit ? offset ?",
+                "select number,type,name,mode from blacknumber limit ? offset ?",
                 new String[]{String.valueOf(pagesize),
                 String.valueOf(pagesize*pagenumber)});
         List<BlackContactInfo> mBlackContactInfos = new ArrayList<BlackContactInfo>();
         while (cursor.moveToNext()){
             BlackContactInfo info = new BlackContactInfo();
             info.phoneNumber=cursor.getString(0);
-            info.mode=cursor.getInt(1);
+            info.mode=cursor.getInt(3);
             info.contactName=cursor.getString(2);
+            info.contactType=cursor.getString(1);
             mBlackContactInfos.add(info);
         }
         cursor.close();

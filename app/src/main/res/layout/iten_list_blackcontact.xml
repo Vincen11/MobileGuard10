@@ -26,6 +26,13 @@
         android:layout_below="@+id/tv_black_name"
         android:layout_marginTop="10dp"
         android:textColor="@color/purple"/>
+    <TextView
+        style="@style/textview14sp"
+        android:id="@+id/tv_black_type"
+        android:layout_toRightOf="@+id/view_black_icon"
+        android:layout_below="@+id/tv_black_mode"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/purple"/>
     <View
         android:layout_width="34dp"
         android:layout_height="40dp"

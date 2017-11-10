@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.edu.gdmec.android.mobileguard.R;
+import cn.edu.gdmec.android.mobileguard.m1home.HomeActivity;
 import cn.edu.gdmec.android.mobileguard.m3communicationguard.adapter.BlackContactAdapter;
 import cn.edu.gdmec.android.mobileguard.m3communicationguard.db.dao.BlackNumberDao;
 import cn.edu.gdmec.android.mobileguard.m3communicationguard.entity.BlackContactInfo;
@@ -92,7 +93,6 @@ public class SecurityPhoneActivity extends AppCompatActivity implements View.OnC
                         if (lastVisiblePosition==pageBlackNumber.size()-1){
                             //如果当前条目是最后一个,增查询更多的数据
                             pagenumber++;
-
                             if (pagenumber*pagesize>=totalNumber){
                                 Toast.makeText(SecurityPhoneActivity.this,"没有更多数据了",Toast.LENGTH_LONG).show();
                             }else {
@@ -117,7 +117,6 @@ public class SecurityPhoneActivity extends AppCompatActivity implements View.OnC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_security_phone);
         this.getSupportActionBar().hide();//去除标题栏
-
         initView();
         fillData();
     }
@@ -126,7 +125,7 @@ public class SecurityPhoneActivity extends AppCompatActivity implements View.OnC
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.imgv_leftbtn:
-                finish();
+                startActivity(new Intent(this,HomeActivity.class));
                 break;
             case R.id.btn_addblacknumber:
                 //跳转至添加黑名单页面
@@ -145,11 +144,13 @@ public class SecurityPhoneActivity extends AppCompatActivity implements View.OnC
             mHaveBlackNumber.setVisibility(View.GONE);
             mNoBlackNumber.setVisibility(View.VISIBLE);
         }
-        pagenumber=0;
         pageBlackNumber.clear();
-        pageBlackNumber.addAll(dao.getPageBlackNumber(pagenumber,pagesize));
-        if (adapter!=null){
-            adapter.notifyDataSetChanged();
-        }
+        fillData();
+        //下面这段代码让我给用上面这条代替了 解决了有数据时 追加数据后不显示的问题
+//        pageBlackNumber.addAll(dao.getPageBlackNumber(pagenumber,pagesize));
+//        if (adapter!=null){
+//            adapter.notifyDataSetChanged();
+//        }
+
     }
 }
