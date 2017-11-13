@@ -83,6 +83,7 @@
             android:enabled="true"
             android:exported="true">
             <meta-data
+
                 android:name="android.app.device_admin"
                 android:resource="@xml/device_damin_sample"/>
             <intent-filter>
