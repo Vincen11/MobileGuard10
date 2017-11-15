@@ -37,7 +37,7 @@ public class ScanVirusAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int i) {
-        return i;
+        return mScanAppInfos.get(i);
     }
 
     @Override

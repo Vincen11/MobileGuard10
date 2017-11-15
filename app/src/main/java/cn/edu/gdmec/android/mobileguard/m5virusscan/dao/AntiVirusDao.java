@@ -16,7 +16,7 @@ public class AntiVirusDao {
     private static String dbname;
     public AntiVirusDao(Context context){
         this.context=context;
-        dbname="/data/data/"+context.getPackageName()+"/files/antivirus.db";
+        dbname="data/data/"+context.getPackageName()+"/files/antivirus.db";
     }
 
     //调用apk文件的md5值匹配病毒数据库
