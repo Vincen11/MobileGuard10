@@ -8,11 +8,11 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:background="@color/white">
+        android:background="@color/blue">
         <TextView
             android:id="@+id/tv_scanprocess"
             style="@style/wrapcontent"
-            android:textColor="@color/purple"
+            android:textColor="@color/white"
             android:textSize="38sp"
             android:textStyle="bold"
             android:layout_centerInParent="true"/>

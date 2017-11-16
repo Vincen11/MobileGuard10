@@ -38,13 +38,11 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_home);
         getSupportActionBar().hide();
         mSharedPreferences = getSharedPreferences ( "config", MODE_PRIVATE );
 
         gv_home = (GridView) findViewById( R.id.gv_home);
-
         gv_home = (GridView) findViewById(R.id.gv_home);
 
         gv_home.setAdapter(new HomeAdapter (HomeActivity.this));
