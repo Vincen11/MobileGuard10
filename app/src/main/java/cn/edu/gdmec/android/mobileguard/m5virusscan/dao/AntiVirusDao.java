@@ -54,7 +54,5 @@ public class AntiVirusDao {
         }
         db.close();
         return "";
-
-
     }
 }
