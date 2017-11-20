@@ -16,7 +16,7 @@ public class AntiVirusDao {
     private static String dbname;
     public AntiVirusDao(Context context){
         this.context=context;
-        dbname="data/data/"+context.getPackageName()+"/files/antivirus.db";
+        dbname="/data/data/"+context.getPackageName()+"/files/antivirus.db";
     }
 
     //调用apk文件的md5值匹配病毒数据库
@@ -45,12 +45,12 @@ public class AntiVirusDao {
                 dbname,null,
                 SQLiteDatabase.OPEN_READONLY);
         Cursor cursor = db.rawQuery("select * from version",null);
-        while (cursor.moveToLast()) {//moveToLast()移动至最新一行 表示数据库最新的版本
-            year = cursor.getInt(0)+""; //获取第一列的值,第一列的索引从0开始
-            month = cursor.getInt(1)+"";//获取第二列的值
-            day = cursor.getInt(2)+"";//获取第三列的值
-            version=year+"."+month+"."+day;
-            return version;
+            while (cursor.moveToLast()) {//moveToLast()移动至最新一行 表示数据库最新的版本
+                year = cursor.getInt(0)+""; //获取第一列的值,第一列的索引从0开始
+                month = cursor.getInt(1)+"";//获取第二列的值
+                day = cursor.getInt(2)+"";//获取第三列的值
+                version=year+"."+month+"."+day;
+                return version;
         }
         db.close();
         return "";

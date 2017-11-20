@@ -35,7 +35,7 @@ public class VirusScanActicity extends AppCompatActivity implements View.OnClick
         mVersion = avd.getVersion();
         mTvVersion = (TextView)findViewById(R.id.tv_virusversion);
         mTvVersion.setText("版本号："+mVersion);
-        final VersionUpdateUtils1 versionUpdateUtils = new VersionUpdateUtils1(mVersion,VirusScanActicity.this);
+        final  VersionUpdateUtils1 versionUpdateUtils = new VersionUpdateUtils1(mVersion,VirusScanActicity.this);
         new Thread(){
             @Override
             public void run(){

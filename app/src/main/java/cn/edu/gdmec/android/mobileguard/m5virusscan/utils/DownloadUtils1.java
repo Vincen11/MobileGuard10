@@ -1,8 +1,10 @@
 package cn.edu.gdmec.android.mobileguard.m5virusscan.utils;
 
+import android.app.AlertDialog;
 import android.app.DownloadManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.Cursor;
@@ -14,6 +16,8 @@ import android.webkit.MimeTypeMap;
 import android.widget.Toast;
 
 import java.io.File;
+
+import cn.edu.gdmec.android.mobileguard.R;
 
 import static android.content.ContentValues.TAG;
 
@@ -52,12 +56,23 @@ public class DownloadUtils1{
                                 isGoging=false;
                                 Toast.makeText(context, "下载完成", Toast.LENGTH_LONG).show();
                                 UpdateSQL(context,targetFile);
-                                File srcFile = new File(Environment.getDownloadCacheDirectory().toString()+targetFile);
-                                File tmpFile = new File("data/data/"+context.getPackageName()+"/files/");
-                                if (srcFile.renameTo(new File(tmpFile + srcFile.getName()))) {
+                                File srcFile = new File(Environment.getExternalStorageDirectory()+"/download/antivirus.db");
+                                File tmpFile = new File("/data/data/"+context.getPackageName()+"/files/");
+
+                                if (srcFile.renameTo(new File(tmpFile + "antivirus.db"))) {
                                     Toast.makeText(context, "移动成功!", Toast.LENGTH_LONG).show();
                                 } else {
-                                    Toast.makeText(context, tmpFile.toString(), Toast.LENGTH_LONG).show();
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                                    builder.setTitle("shibai");
+                                    builder.setMessage(srcFile.toString());
+                                    builder.setCancelable(false);
+                                    builder.setNegativeButton("暂不升级", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            dialogInterface.dismiss();
+                                        }
+                                    });
+                                    builder.show();
                                 }
 
                                 break;
