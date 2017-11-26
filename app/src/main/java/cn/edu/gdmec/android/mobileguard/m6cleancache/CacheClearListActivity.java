@@ -60,6 +60,7 @@ public class CacheClearListActivity extends AppCompatActivity implements View.On
                     mRecomandTV.setText("正在扫描："+info.packageName);
                     mCanCleanTV.setText("已扫描缓存："+
                             android.text.format.Formatter.formatFileSize(CacheClearListActivity.this,cacheMemory));
+                           // android.text.format.Formatter.formatFileSize(CacheClearListActivity.this,cacheMemory));
                     //在主线程添加变化后集合
                     mCacheInfos.clear();
                     mCacheInfos.addAll(cacheInfos);

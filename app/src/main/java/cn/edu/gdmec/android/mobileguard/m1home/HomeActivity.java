@@ -26,6 +26,7 @@ import cn.edu.gdmec.android.mobileguard.m4appmanager.AppManagerActivity;
 import cn.edu.gdmec.android.mobileguard.m4appmanager.adapter.AppManagerAdapter;
 import cn.edu.gdmec.android.mobileguard.m5virusscan.VirusScanActicity;
 import cn.edu.gdmec.android.mobileguard.m5virusscan.VirusScanSpeedActivity;
+import cn.edu.gdmec.android.mobileguard.m6cleancache.CacheClearListActivity;
 
 public class HomeActivity extends AppCompatActivity {
     private GridView gv_home;
@@ -70,6 +71,11 @@ public class HomeActivity extends AppCompatActivity {
                     case 3:
                         Intent intent2 = new Intent ( HomeActivity.this, VirusScanActicity.class);
                         startActivity ( intent2);
+                        finish ();
+                        break;
+                    case 4:
+                        Intent intent3 = new Intent ( HomeActivity.this, CacheClearListActivity.class);
+                        startActivity ( intent3);
                         finish ();
                         break;
                 }
