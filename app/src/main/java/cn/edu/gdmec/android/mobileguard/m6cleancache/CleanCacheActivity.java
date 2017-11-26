@@ -91,7 +91,7 @@ public class CleanCacheActivity extends AppCompatActivity implements View.OnClic
         String cacheMemoryStr=Formatter.formatFileSize(this, memory);
         String memoryStr;
         String memoryUnit;
-        //根据大小判定单位
+        //根据大小判定单位。
         if(memory >900){
             //大于900则单位两位
             memoryStr = cacheMemoryStr.substring(0, cacheMemoryStr.length()-2);
