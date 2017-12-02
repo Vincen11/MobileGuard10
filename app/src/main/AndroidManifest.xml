@@ -51,6 +51,8 @@
         <activity android:name=".m5virusscan.VirusScanSpeedActivity"/>
         <activity android:name=".m6cleancache.CacheClearListActivity"/>
         <activity android:name=".m6cleancache.CleanCacheActivity"/>
+        <activity android:name=".m8trafficmonitor.TrafficMonitoringActivity"/>
+        <activity android:name=".m8trafficmonitor.OperatorSetActivity"/>
         <receiver android:name=".m3communicationguard.receiver.InterceptCallReciever"
             android:enabled="true"
             android:exported="true">
