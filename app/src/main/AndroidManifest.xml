@@ -53,6 +53,8 @@
         <activity android:name=".m6cleancache.CleanCacheActivity"/>
         <activity android:name=".m8trafficmonitor.TrafficMonitoringActivity"/>
         <activity android:name=".m8trafficmonitor.OperatorSetActivity"/>
+        <activity android:name=".m9advancedtools.NumBelongtoActivity"/>
+        <activity android:name=".m9advancedtools.AdvancedToolsActivity"/>
         <receiver android:name=".m3communicationguard.receiver.InterceptCallReciever"
             android:enabled="true"
             android:exported="true">
