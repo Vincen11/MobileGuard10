@@ -28,5 +28,6 @@ public class AppInfo {
             return "外部储存";
         }
     }
+    public boolean isLock;
 
 }
