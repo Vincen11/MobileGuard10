@@ -113,7 +113,7 @@ public class AppManagerAdapter extends BaseAdapter{
             view.setTag(viewHolder);
         }
         if (appInfo!=null) {
-            viewHolder.mAppLocationTV.setText(appInfo.getApplocation(appInfo.isInRoom));
+            viewHolder.mAppLocationTV.setText(appInfo.getAppLocation(appInfo.isInRoom));
             viewHolder.mAppIconImgv.setImageDrawable(appInfo.icon);
             viewHolder.mAppSizeTV.setText(Formatter.formatFileSize(context,
                     appInfo.appSize));

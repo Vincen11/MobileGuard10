@@ -1,33 +1,43 @@
 package cn.edu.gdmec.android.mobileguard.m4appmanager.entity;
 
-
 import android.graphics.drawable.Drawable;
 
 public class AppInfo {
-    //应用程序的包名
+    /** 应用程序包名 */
     public String packageName;
-    //图标
+    /** 应用程序图标 */
     public Drawable icon;
-    //名称
+    /** 应用程序名称 */
     public String appName;
-    //路径
+    /** 应用程序路径 */
     public String apkPath;
-    //大小
+    /** 应用程序大小 */
     public long appSize;
-    //是否是手机储存
+    /** 是否是手机存储 */
     public boolean isInRoom;
-    //是否是用户应用
+    /** 是否是用户应用 */
     public boolean isUserApp;
-    //是否选中 默认为false
+    /** 是否选中，默认都为false */
     public boolean isSelected = false;
+    /**版本号*/
+    public String versionName;
+    /**安装时间*/
+    public long firstInstallTime;
+    /**签名信息*/
+    public String signature;
+    /**权限信息*/
+    public String requestedPermissions;
+    /**活动信息*/
+    public String activities;
 
-    public String getApplocation(boolean isInRoom){
-        if (isInRoom){
+    /**拿到App位置字符串*/
+    public String getAppLocation(boolean isInRoom) {
+        if (isInRoom) {
             return "手机内存";
-        }else {
-            return "外部储存";
+        } else {
+            return "外部存储";
         }
     }
+    /**应用程序是否加锁*/
     public boolean isLock;
-
 }
