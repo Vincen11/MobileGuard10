@@ -91,7 +91,7 @@
             android:id="@+id/tv_activity_app"
             style="@style/tvyellow14sp"
             android:text="活动"
-            android:drawableTop="@drawable/abouticon_yellow_n"/>
+            android:drawableTop="@drawable/activityicon_yellow_n"/>
 
     </LinearLayout>
 </LinearLayout>

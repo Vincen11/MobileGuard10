@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import cn.edu.gdmec.android.mobileguard.R;
+import cn.edu.gdmec.android.mobileguard.m1home.HomeActivity;
 
 public class AdvancedToolsActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -34,7 +35,7 @@ public class AdvancedToolsActivity extends AppCompatActivity implements View.OnC
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.imgv_leftbtn:
-                finish();
+                startActivity(HomeActivity.class);
                 break;
             case R.id.advanceview_numbelongs:
                 startActivity(NumBelongtoActivity.class);
